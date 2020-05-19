@@ -66,12 +66,28 @@ namespace Org.OpenAPITools.Test
 
 
         /// <summary>
-        /// Test the property 'File'
+        /// Test the property 'ImageUrl'
         /// </summary>
         [Test]
-        public void FileTest()
+        public void ImageUrlTest()
         {
-            // TODO unit test for the property 'File'
+            // TODO unit test for the property 'ImageUrl'
+        }
+        /// <summary>
+        /// Test the property 'Tag'
+        /// </summary>
+        [Test]
+        public void TagTest()
+        {
+            // TODO unit test for the property 'Tag'
+        }
+        /// <summary>
+        /// Test the property 'ModelId'
+        /// </summary>
+        [Test]
+        public void ModelIdTest()
+        {
+            // TODO unit test for the property 'ModelId'
         }
 
     }

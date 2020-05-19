@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**CreateNewModel**](DefaultApi.md#createnewmodel) | **PUT** /models | Create New Model
 [**DeleteModel**](DefaultApi.md#deletemodel) | **DELETE** /models | Delete Model
 [**GetModelsList**](DefaultApi.md#getmodelslist) | **GET** /models | Get Models List
-[**IndexByImageUrl**](DefaultApi.md#indexbyimageurl) | **GET** /index_by_image_url | Index by Using Image URL
+[**IndexByImageUrl**](DefaultApi.md#indexbyimageurl) | **POST** /index_by_image_url | Index by Using Image URL
 [**IndexImage**](DefaultApi.md#indeximage) | **POST** /index_image | Index Local Image
 [**TagImageByUrl**](DefaultApi.md#tagimagebyurl) | **GET** /predict_by_image_url | Tag Image by Using Image Url
 [**TagLocalImage**](DefaultApi.md#taglocalimage) | **POST** /predict | Predict by Image
@@ -256,7 +256,7 @@ This endpoint does not need any parameter.
 
 ## IndexByImageUrl
 
-> string IndexByImageUrl (string modelId, string imageUrl)
+> void IndexByImageUrl (InlineObject inlineObject)
 
 Index by Using Image URL
 
@@ -284,14 +284,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new DefaultApi(Configuration.Default);
-            var modelId = modelId_example;  // string | Model ID
-            var imageUrl = imageUrl_example;  // string | Image URL
+            var inlineObject = new InlineObject(); // InlineObject | 
 
             try
             {
                 // Index by Using Image URL
-                string result = apiInstance.IndexByImageUrl(modelId, imageUrl);
-                Debug.WriteLine(result);
+                apiInstance.IndexByImageUrl(inlineObject);
             }
             catch (ApiException e)
             {
@@ -309,12 +307,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelId** | **string**| Model ID | 
- **imageUrl** | **string**| Image URL | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
 
-**string**
+void (empty response body)
 
 ### Authorization
 
@@ -322,8 +319,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -340,7 +337,7 @@ Name | Type | Description  | Notes
 
 ## IndexImage
 
-> string IndexImage (string modelId, System.IO.Stream file = null)
+> string IndexImage (string modelId = null, string tag = null, System.IO.Stream file = null)
 
 Index Local Image
 
@@ -368,13 +365,14 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new DefaultApi(Configuration.Default);
-            var modelId = modelId_example;  // string | Model ID
+            var modelId = modelId_example;  // string |  (optional) 
+            var tag = tag_example;  // string |  (optional) 
             var file = BINARY_DATA_HERE;  // System.IO.Stream |  (optional) 
 
             try
             {
                 // Index Local Image
-                string result = apiInstance.IndexImage(modelId, file);
+                string result = apiInstance.IndexImage(modelId, tag, file);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -393,7 +391,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelId** | **string**| Model ID | 
+ **modelId** | **string**|  | [optional] 
+ **tag** | **string**|  | [optional] 
  **file** | **System.IO.Stream**|  | [optional] 
 
 ### Return type
@@ -507,7 +506,7 @@ void (empty response body)
 
 ## TagLocalImage
 
-> void TagLocalImage (string modelId, System.IO.Stream file = null)
+> void TagLocalImage (System.IO.Stream file = null, string modelId = null)
 
 Predict by Image
 
@@ -535,13 +534,13 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new DefaultApi(Configuration.Default);
-            var modelId = modelId_example;  // string | Type your trained model id to predict. You get your model's id from Classify Dashboard.
             var file = BINARY_DATA_HERE;  // System.IO.Stream |  (optional) 
+            var modelId = modelId_example;  // string |  (optional) 
 
             try
             {
                 // Predict by Image
-                apiInstance.TagLocalImage(modelId, file);
+                apiInstance.TagLocalImage(file, modelId);
             }
             catch (ApiException e)
             {
@@ -559,8 +558,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modelId** | **string**| Type your trained model id to predict. You get your model&#39;s id from Classify Dashboard. | 
  **file** | **System.IO.Stream**|  | [optional] 
+ **modelId** | **string**|  | [optional] 
 
 ### Return type
 

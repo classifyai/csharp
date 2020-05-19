@@ -19,6 +19,7 @@ using NUnit.Framework;
 
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Model;
 
 namespace Org.OpenAPITools.Test
 {
@@ -104,10 +105,9 @@ namespace Org.OpenAPITools.Test
         public void IndexByImageUrlTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string modelId = null;
-            //string imageUrl = null;
-            //var response = instance.IndexByImageUrl(modelId, imageUrl);
-            //Assert.IsInstanceOf(typeof(string), response, "response is string");
+            //InlineObject inlineObject = null;
+            //instance.IndexByImageUrl(inlineObject);
+            
         }
         
         /// <summary>
@@ -118,8 +118,9 @@ namespace Org.OpenAPITools.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string modelId = null;
+            //string tag = null;
             //System.IO.Stream file = null;
-            //var response = instance.IndexImage(modelId, file);
+            //var response = instance.IndexImage(modelId, tag, file);
             //Assert.IsInstanceOf(typeof(string), response, "response is string");
         }
         
@@ -143,9 +144,9 @@ namespace Org.OpenAPITools.Test
         public void TagLocalImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string modelId = null;
             //System.IO.Stream file = null;
-            //instance.TagLocalImage(modelId, file);
+            //string modelId = null;
+            //instance.TagLocalImage(file, modelId);
             
         }
         

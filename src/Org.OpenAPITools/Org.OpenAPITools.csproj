@@ -12,7 +12,7 @@ Contact: info@inoven.ai
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{457AD897-654B-42FD-B7E9-915DCAD7C4A7}</ProjectGuid>
+    <ProjectGuid>{2AFB6A85-89C9-4A11-80D6-9EC83162429E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Org.OpenAPITools</RootNamespace>

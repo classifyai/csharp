@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Org.OpenAPITools.Api
 {
@@ -91,10 +92,9 @@ namespace Org.OpenAPITools.Api
         /// Index by Using Image URL
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
-        /// <param name="imageUrl">Image URL</param>
-        /// <returns>string</returns>
-        string IndexByImageUrl (string modelId, string imageUrl);
+        /// <param name="inlineObject"></param>
+        /// <returns></returns>
+        void IndexByImageUrl (InlineObject inlineObject);
 
         /// <summary>
         /// Index by Using Image URL
@@ -103,10 +103,9 @@ namespace Org.OpenAPITools.Api
         /// Index by Using Image URL
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
-        /// <param name="imageUrl">Image URL</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> IndexByImageUrlWithHttpInfo (string modelId, string imageUrl);
+        /// <param name="inlineObject"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> IndexByImageUrlWithHttpInfo (InlineObject inlineObject);
         /// <summary>
         /// Index Local Image
         /// </summary>
@@ -114,10 +113,11 @@ namespace Org.OpenAPITools.Api
         /// Index Local Image
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
+        /// <param name="modelId"> (optional)</param>
+        /// <param name="tag"> (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>string</returns>
-        string IndexImage (string modelId, System.IO.Stream file = default(System.IO.Stream));
+        string IndexImage (string modelId = default(string), string tag = default(string), System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
         /// Index Local Image
@@ -126,10 +126,11 @@ namespace Org.OpenAPITools.Api
         /// Index Local Image
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
+        /// <param name="modelId"> (optional)</param>
+        /// <param name="tag"> (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> IndexImageWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream));
+        ApiResponse<string> IndexImageWithHttpInfo (string modelId = default(string), string tag = default(string), System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
         /// Tag Image by Using Image Url
         /// </summary>
@@ -160,10 +161,10 @@ namespace Org.OpenAPITools.Api
         /// Send a local image to tag
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Type your trained model id to predict. You get your model&#39;s id from Classify Dashboard.</param>
         /// <param name="file"> (optional)</param>
+        /// <param name="modelId"> (optional)</param>
         /// <returns></returns>
-        void TagLocalImage (string modelId, System.IO.Stream file = default(System.IO.Stream));
+        void TagLocalImage (System.IO.Stream file = default(System.IO.Stream), string modelId = default(string));
 
         /// <summary>
         /// Predict by Image
@@ -172,10 +173,10 @@ namespace Org.OpenAPITools.Api
         /// Send a local image to tag
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Type your trained model id to predict. You get your model&#39;s id from Classify Dashboard.</param>
         /// <param name="file"> (optional)</param>
+        /// <param name="modelId"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> TagLocalImageWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream));
+        ApiResponse<Object> TagLocalImageWithHttpInfo (System.IO.Stream file = default(System.IO.Stream), string modelId = default(string));
         /// <summary>
         /// Update Model
         /// </summary>
@@ -269,10 +270,9 @@ namespace Org.OpenAPITools.Api
         /// Index by Using Image URL
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
-        /// <param name="imageUrl">Image URL</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> IndexByImageUrlAsync (string modelId, string imageUrl);
+        /// <param name="inlineObject"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task IndexByImageUrlAsync (InlineObject inlineObject);
 
         /// <summary>
         /// Index by Using Image URL
@@ -281,10 +281,9 @@ namespace Org.OpenAPITools.Api
         /// Index by Using Image URL
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
-        /// <param name="imageUrl">Image URL</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> IndexByImageUrlAsyncWithHttpInfo (string modelId, string imageUrl);
+        /// <param name="inlineObject"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> IndexByImageUrlAsyncWithHttpInfo (InlineObject inlineObject);
         /// <summary>
         /// Index Local Image
         /// </summary>
@@ -292,10 +291,11 @@ namespace Org.OpenAPITools.Api
         /// Index Local Image
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
+        /// <param name="modelId"> (optional)</param>
+        /// <param name="tag"> (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> IndexImageAsync (string modelId, System.IO.Stream file = default(System.IO.Stream));
+        System.Threading.Tasks.Task<string> IndexImageAsync (string modelId = default(string), string tag = default(string), System.IO.Stream file = default(System.IO.Stream));
 
         /// <summary>
         /// Index Local Image
@@ -304,10 +304,11 @@ namespace Org.OpenAPITools.Api
         /// Index Local Image
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
+        /// <param name="modelId"> (optional)</param>
+        /// <param name="tag"> (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> IndexImageAsyncWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream));
+        System.Threading.Tasks.Task<ApiResponse<string>> IndexImageAsyncWithHttpInfo (string modelId = default(string), string tag = default(string), System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
         /// Tag Image by Using Image Url
         /// </summary>
@@ -338,10 +339,10 @@ namespace Org.OpenAPITools.Api
         /// Send a local image to tag
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Type your trained model id to predict. You get your model&#39;s id from Classify Dashboard.</param>
         /// <param name="file"> (optional)</param>
+        /// <param name="modelId"> (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TagLocalImageAsync (string modelId, System.IO.Stream file = default(System.IO.Stream));
+        System.Threading.Tasks.Task TagLocalImageAsync (System.IO.Stream file = default(System.IO.Stream), string modelId = default(string));
 
         /// <summary>
         /// Predict by Image
@@ -350,10 +351,10 @@ namespace Org.OpenAPITools.Api
         /// Send a local image to tag
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Type your trained model id to predict. You get your model&#39;s id from Classify Dashboard.</param>
         /// <param name="file"> (optional)</param>
+        /// <param name="modelId"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TagLocalImageAsyncWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TagLocalImageAsyncWithHttpInfo (System.IO.Stream file = default(System.IO.Stream), string modelId = default(string));
         /// <summary>
         /// Update Model
         /// </summary>
@@ -901,30 +902,24 @@ namespace Org.OpenAPITools.Api
         /// Index by Using Image URL Index by Using Image URL
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
-        /// <param name="imageUrl">Image URL</param>
-        /// <returns>string</returns>
-        public string IndexByImageUrl (string modelId, string imageUrl)
+        /// <param name="inlineObject"></param>
+        /// <returns></returns>
+        public void IndexByImageUrl (InlineObject inlineObject)
         {
-             ApiResponse<string> localVarResponse = IndexByImageUrlWithHttpInfo(modelId, imageUrl);
-             return localVarResponse.Data;
+             IndexByImageUrlWithHttpInfo(inlineObject);
         }
 
         /// <summary>
         /// Index by Using Image URL Index by Using Image URL
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
-        /// <param name="imageUrl">Image URL</param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse<string> IndexByImageUrlWithHttpInfo (string modelId, string imageUrl)
+        /// <param name="inlineObject"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> IndexByImageUrlWithHttpInfo (InlineObject inlineObject)
         {
-            // verify the required parameter 'modelId' is set
-            if (modelId == null)
-                throw new ApiException(400, "Missing required parameter 'modelId' when calling DefaultApi->IndexByImageUrl");
-            // verify the required parameter 'imageUrl' is set
-            if (imageUrl == null)
-                throw new ApiException(400, "Missing required parameter 'imageUrl' when calling DefaultApi->IndexByImageUrl");
+            // verify the required parameter 'inlineObject' is set
+            if (inlineObject == null)
+                throw new ApiException(400, "Missing required parameter 'inlineObject' when calling DefaultApi->IndexByImageUrl");
 
             var localVarPath = "/index_by_image_url";
             var localVarPathParams = new Dictionary<String, String>();
@@ -936,19 +931,25 @@ namespace Org.OpenAPITools.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
             };
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (modelId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "model_id", modelId)); // query parameter
-            if (imageUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "image_url", imageUrl)); // query parameter
+            if (inlineObject != null && inlineObject.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inlineObject; // byte array
+            }
 
             // authentication (x-api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-api-key")))
@@ -958,7 +959,7 @@ namespace Org.OpenAPITools.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -969,22 +970,20 @@ namespace Org.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                null);
         }
 
         /// <summary>
         /// Index by Using Image URL Index by Using Image URL
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
-        /// <param name="imageUrl">Image URL</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> IndexByImageUrlAsync (string modelId, string imageUrl)
+        /// <param name="inlineObject"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task IndexByImageUrlAsync (InlineObject inlineObject)
         {
-             ApiResponse<string> localVarResponse = await IndexByImageUrlAsyncWithHttpInfo(modelId, imageUrl);
-             return localVarResponse.Data;
+             await IndexByImageUrlAsyncWithHttpInfo(inlineObject);
 
         }
 
@@ -992,17 +991,13 @@ namespace Org.OpenAPITools.Api
         /// Index by Using Image URL Index by Using Image URL
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
-        /// <param name="imageUrl">Image URL</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> IndexByImageUrlAsyncWithHttpInfo (string modelId, string imageUrl)
+        /// <param name="inlineObject"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> IndexByImageUrlAsyncWithHttpInfo (InlineObject inlineObject)
         {
-            // verify the required parameter 'modelId' is set
-            if (modelId == null)
-                throw new ApiException(400, "Missing required parameter 'modelId' when calling DefaultApi->IndexByImageUrl");
-            // verify the required parameter 'imageUrl' is set
-            if (imageUrl == null)
-                throw new ApiException(400, "Missing required parameter 'imageUrl' when calling DefaultApi->IndexByImageUrl");
+            // verify the required parameter 'inlineObject' is set
+            if (inlineObject == null)
+                throw new ApiException(400, "Missing required parameter 'inlineObject' when calling DefaultApi->IndexByImageUrl");
 
             var localVarPath = "/index_by_image_url";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1014,19 +1009,25 @@ namespace Org.OpenAPITools.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
             };
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (modelId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "model_id", modelId)); // query parameter
-            if (imageUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "image_url", imageUrl)); // query parameter
+            if (inlineObject != null && inlineObject.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inlineObject; // byte array
+            }
 
             // authentication (x-api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-api-key")))
@@ -1036,7 +1037,7 @@ namespace Org.OpenAPITools.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1047,21 +1048,22 @@ namespace Org.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                null);
         }
 
         /// <summary>
         /// Index Local Image Index Local Image
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
+        /// <param name="modelId"> (optional)</param>
+        /// <param name="tag"> (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>string</returns>
-        public string IndexImage (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        public string IndexImage (string modelId = default(string), string tag = default(string), System.IO.Stream file = default(System.IO.Stream))
         {
-             ApiResponse<string> localVarResponse = IndexImageWithHttpInfo(modelId, file);
+             ApiResponse<string> localVarResponse = IndexImageWithHttpInfo(modelId, tag, file);
              return localVarResponse.Data;
         }
 
@@ -1069,14 +1071,12 @@ namespace Org.OpenAPITools.Api
         /// Index Local Image Index Local Image
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
+        /// <param name="modelId"> (optional)</param>
+        /// <param name="tag"> (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>ApiResponse of string</returns>
-        public ApiResponse<string> IndexImageWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        public ApiResponse<string> IndexImageWithHttpInfo (string modelId = default(string), string tag = default(string), System.IO.Stream file = default(System.IO.Stream))
         {
-            // verify the required parameter 'modelId' is set
-            if (modelId == null)
-                throw new ApiException(400, "Missing required parameter 'modelId' when calling DefaultApi->IndexImage");
 
             var localVarPath = "/index_image";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1100,7 +1100,8 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (modelId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "model_id", modelId)); // query parameter
+            if (modelId != null) localVarFormParams.Add("model_id", this.Configuration.ApiClient.ParameterToString(modelId)); // form parameter
+            if (tag != null) localVarFormParams.Add("tag", this.Configuration.ApiClient.ParameterToString(tag)); // form parameter
             if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
 
             // authentication (x-api-key) required
@@ -1131,12 +1132,13 @@ namespace Org.OpenAPITools.Api
         /// Index Local Image Index Local Image
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
+        /// <param name="modelId"> (optional)</param>
+        /// <param name="tag"> (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> IndexImageAsync (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        public async System.Threading.Tasks.Task<string> IndexImageAsync (string modelId = default(string), string tag = default(string), System.IO.Stream file = default(System.IO.Stream))
         {
-             ApiResponse<string> localVarResponse = await IndexImageAsyncWithHttpInfo(modelId, file);
+             ApiResponse<string> localVarResponse = await IndexImageAsyncWithHttpInfo(modelId, tag, file);
              return localVarResponse.Data;
 
         }
@@ -1145,14 +1147,12 @@ namespace Org.OpenAPITools.Api
         /// Index Local Image Index Local Image
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Model ID</param>
+        /// <param name="modelId"> (optional)</param>
+        /// <param name="tag"> (optional)</param>
         /// <param name="file"> (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> IndexImageAsyncWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        public async System.Threading.Tasks.Task<ApiResponse<string>> IndexImageAsyncWithHttpInfo (string modelId = default(string), string tag = default(string), System.IO.Stream file = default(System.IO.Stream))
         {
-            // verify the required parameter 'modelId' is set
-            if (modelId == null)
-                throw new ApiException(400, "Missing required parameter 'modelId' when calling DefaultApi->IndexImage");
 
             var localVarPath = "/index_image";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1176,7 +1176,8 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (modelId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "model_id", modelId)); // query parameter
+            if (modelId != null) localVarFormParams.Add("model_id", this.Configuration.ApiClient.ParameterToString(modelId)); // form parameter
+            if (tag != null) localVarFormParams.Add("tag", this.Configuration.ApiClient.ParameterToString(tag)); // form parameter
             if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
 
             // authentication (x-api-key) required
@@ -1360,26 +1361,23 @@ namespace Org.OpenAPITools.Api
         /// Predict by Image Send a local image to tag
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Type your trained model id to predict. You get your model&#39;s id from Classify Dashboard.</param>
         /// <param name="file"> (optional)</param>
+        /// <param name="modelId"> (optional)</param>
         /// <returns></returns>
-        public void TagLocalImage (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        public void TagLocalImage (System.IO.Stream file = default(System.IO.Stream), string modelId = default(string))
         {
-             TagLocalImageWithHttpInfo(modelId, file);
+             TagLocalImageWithHttpInfo(file, modelId);
         }
 
         /// <summary>
         /// Predict by Image Send a local image to tag
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Type your trained model id to predict. You get your model&#39;s id from Classify Dashboard.</param>
         /// <param name="file"> (optional)</param>
+        /// <param name="modelId"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> TagLocalImageWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        public ApiResponse<Object> TagLocalImageWithHttpInfo (System.IO.Stream file = default(System.IO.Stream), string modelId = default(string))
         {
-            // verify the required parameter 'modelId' is set
-            if (modelId == null)
-                throw new ApiException(400, "Missing required parameter 'modelId' when calling DefaultApi->TagLocalImage");
 
             var localVarPath = "/predict";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1403,8 +1401,8 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (modelId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "model_id", modelId)); // query parameter
             if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
+            if (modelId != null) localVarFormParams.Add("model_id", this.Configuration.ApiClient.ParameterToString(modelId)); // form parameter
 
             // authentication (x-api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-api-key")))
@@ -1434,12 +1432,12 @@ namespace Org.OpenAPITools.Api
         /// Predict by Image Send a local image to tag
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Type your trained model id to predict. You get your model&#39;s id from Classify Dashboard.</param>
         /// <param name="file"> (optional)</param>
+        /// <param name="modelId"> (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TagLocalImageAsync (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        public async System.Threading.Tasks.Task TagLocalImageAsync (System.IO.Stream file = default(System.IO.Stream), string modelId = default(string))
         {
-             await TagLocalImageAsyncWithHttpInfo(modelId, file);
+             await TagLocalImageAsyncWithHttpInfo(file, modelId);
 
         }
 
@@ -1447,14 +1445,11 @@ namespace Org.OpenAPITools.Api
         /// Predict by Image Send a local image to tag
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="modelId">Type your trained model id to predict. You get your model&#39;s id from Classify Dashboard.</param>
         /// <param name="file"> (optional)</param>
+        /// <param name="modelId"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> TagLocalImageAsyncWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> TagLocalImageAsyncWithHttpInfo (System.IO.Stream file = default(System.IO.Stream), string modelId = default(string))
         {
-            // verify the required parameter 'modelId' is set
-            if (modelId == null)
-                throw new ApiException(400, "Missing required parameter 'modelId' when calling DefaultApi->TagLocalImage");
 
             var localVarPath = "/predict";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1478,8 +1473,8 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (modelId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "model_id", modelId)); // query parameter
             if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
+            if (modelId != null) localVarFormParams.Add("model_id", this.Configuration.ApiClient.ParameterToString(modelId)); // form parameter
 
             // authentication (x-api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-api-key")))

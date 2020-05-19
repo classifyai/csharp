@@ -33,17 +33,65 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineObject" /> class.
         /// </summary>
-        /// <param name="file">file.</param>
-        public InlineObject(System.IO.Stream file = default(System.IO.Stream))
+        [JsonConstructorAttribute]
+        protected InlineObject() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineObject" /> class.
+        /// </summary>
+        /// <param name="imageUrl">imageUrl (required).</param>
+        /// <param name="tag">tag (required).</param>
+        /// <param name="modelId">modelId (required).</param>
+        public InlineObject(string imageUrl = default(string), string tag = default(string), string modelId = default(string))
         {
-            this.File = file;
+            // to ensure "imageUrl" is required (not null)
+            if (imageUrl == null)
+            {
+                throw new InvalidDataException("imageUrl is a required property for InlineObject and cannot be null");
+            }
+            else
+            {
+                this.ImageUrl = imageUrl;
+            }
+            
+            // to ensure "tag" is required (not null)
+            if (tag == null)
+            {
+                throw new InvalidDataException("tag is a required property for InlineObject and cannot be null");
+            }
+            else
+            {
+                this.Tag = tag;
+            }
+            
+            // to ensure "modelId" is required (not null)
+            if (modelId == null)
+            {
+                throw new InvalidDataException("modelId is a required property for InlineObject and cannot be null");
+            }
+            else
+            {
+                this.ModelId = modelId;
+            }
+            
         }
         
         /// <summary>
-        /// Gets or Sets File
+        /// Gets or Sets ImageUrl
         /// </summary>
-        [DataMember(Name="file", EmitDefaultValue=false)]
-        public System.IO.Stream File { get; set; }
+        [DataMember(Name="image_url", EmitDefaultValue=true)]
+        public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Tag
+        /// </summary>
+        [DataMember(Name="tag", EmitDefaultValue=true)]
+        public string Tag { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ModelId
+        /// </summary>
+        [DataMember(Name="model_id", EmitDefaultValue=true)]
+        public string ModelId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,7 +101,9 @@ namespace Org.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineObject {\n");
-            sb.Append("  File: ").Append(File).Append("\n");
+            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+            sb.Append("  Tag: ").Append(Tag).Append("\n");
+            sb.Append("  ModelId: ").Append(ModelId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,9 +139,19 @@ namespace Org.OpenAPITools.Model
 
             return 
                 (
-                    this.File == input.File ||
-                    (this.File != null &&
-                    this.File.Equals(input.File))
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.Tag == input.Tag ||
+                    (this.Tag != null &&
+                    this.Tag.Equals(input.Tag))
+                ) && 
+                (
+                    this.ModelId == input.ModelId ||
+                    (this.ModelId != null &&
+                    this.ModelId.Equals(input.ModelId))
                 );
         }
 
@@ -104,8 +164,12 @@ namespace Org.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.File != null)
-                    hashCode = hashCode * 59 + this.File.GetHashCode();
+                if (this.ImageUrl != null)
+                    hashCode = hashCode * 59 + this.ImageUrl.GetHashCode();
+                if (this.Tag != null)
+                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
+                if (this.ModelId != null)
+                    hashCode = hashCode * 59 + this.ModelId.GetHashCode();
                 return hashCode;
             }
         }

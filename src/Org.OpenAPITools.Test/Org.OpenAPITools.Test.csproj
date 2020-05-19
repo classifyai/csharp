@@ -81,7 +81,7 @@ Contact: info@inoven.ai
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\Org.OpenAPITools\Org.OpenAPITools.csproj">
-          <Project>{457AD897-654B-42FD-B7E9-915DCAD7C4A7}</Project>
+          <Project>{2AFB6A85-89C9-4A11-80D6-9EC83162429E}</Project>
           <Name>Org.OpenAPITools</Name>
       </ProjectReference>
   </ItemGroup>

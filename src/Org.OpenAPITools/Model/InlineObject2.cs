@@ -25,41 +25,33 @@ using OpenAPIDateConverter = Org.OpenAPITools.Client.OpenAPIDateConverter;
 namespace Org.OpenAPITools.Model
 {
     /// <summary>
-    /// InlineObject1
+    /// InlineObject2
     /// </summary>
     [DataContract]
-    public partial class InlineObject1 :  IEquatable<InlineObject1>, IValidatableObject
+    public partial class InlineObject2 :  IEquatable<InlineObject2>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject1" /> class.
+        /// Initializes a new instance of the <see cref="InlineObject2" /> class.
         /// </summary>
-        /// <param name="modelId">modelId.</param>
-        /// <param name="tag">tag.</param>
         /// <param name="file">file.</param>
-        public InlineObject1(string modelId = default(string), string tag = default(string), System.IO.Stream file = default(System.IO.Stream))
+        /// <param name="modelId">modelId.</param>
+        public InlineObject2(System.IO.Stream file = default(System.IO.Stream), string modelId = default(string))
         {
-            this.ModelId = modelId;
-            this.Tag = tag;
             this.File = file;
+            this.ModelId = modelId;
         }
         
-        /// <summary>
-        /// Gets or Sets ModelId
-        /// </summary>
-        [DataMember(Name="model_id", EmitDefaultValue=false)]
-        public string ModelId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Tag
-        /// </summary>
-        [DataMember(Name="tag", EmitDefaultValue=false)]
-        public string Tag { get; set; }
-
         /// <summary>
         /// Gets or Sets File
         /// </summary>
         [DataMember(Name="file", EmitDefaultValue=false)]
         public System.IO.Stream File { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ModelId
+        /// </summary>
+        [DataMember(Name="model_id", EmitDefaultValue=false)]
+        public string ModelId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,10 +60,9 @@ namespace Org.OpenAPITools.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineObject1 {\n");
-            sb.Append("  ModelId: ").Append(ModelId).Append("\n");
-            sb.Append("  Tag: ").Append(Tag).Append("\n");
+            sb.Append("class InlineObject2 {\n");
             sb.Append("  File: ").Append(File).Append("\n");
+            sb.Append("  ModelId: ").Append(ModelId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,34 +83,29 @@ namespace Org.OpenAPITools.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineObject1);
+            return this.Equals(input as InlineObject2);
         }
 
         /// <summary>
-        /// Returns true if InlineObject1 instances are equal
+        /// Returns true if InlineObject2 instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineObject1 to be compared</param>
+        /// <param name="input">Instance of InlineObject2 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineObject1 input)
+        public bool Equals(InlineObject2 input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ModelId == input.ModelId ||
-                    (this.ModelId != null &&
-                    this.ModelId.Equals(input.ModelId))
-                ) && 
-                (
-                    this.Tag == input.Tag ||
-                    (this.Tag != null &&
-                    this.Tag.Equals(input.Tag))
-                ) && 
-                (
                     this.File == input.File ||
                     (this.File != null &&
                     this.File.Equals(input.File))
+                ) && 
+                (
+                    this.ModelId == input.ModelId ||
+                    (this.ModelId != null &&
+                    this.ModelId.Equals(input.ModelId))
                 );
         }
 
@@ -132,12 +118,10 @@ namespace Org.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ModelId != null)
-                    hashCode = hashCode * 59 + this.ModelId.GetHashCode();
-                if (this.Tag != null)
-                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
                 if (this.File != null)
                     hashCode = hashCode * 59 + this.File.GetHashCode();
+                if (this.ModelId != null)
+                    hashCode = hashCode * 59 + this.ModelId.GetHashCode();
                 return hashCode;
             }
         }

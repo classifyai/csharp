@@ -5,7 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** | **System.IO.Stream** |  | [optional] 
+**ImageUrl** | **string** |  | 
+**Tag** | **string** |  | 
+**ModelId** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
