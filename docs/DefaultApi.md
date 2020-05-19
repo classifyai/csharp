@@ -1,12 +1,14 @@
 # Org.OpenAPITools.Api.DefaultApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.classifyai.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateNewModel**](DefaultApi.md#createnewmodel) | **PUT** /models | Create New Model
 [**DeleteModel**](DefaultApi.md#deletemodel) | **DELETE** /models | Delete Model
 [**GetModelsList**](DefaultApi.md#getmodelslist) | **GET** /models | Get Models List
+[**IndexByImageUrl**](DefaultApi.md#indexbyimageurl) | **GET** /index_by_image_url | Index by Using Image URL
+[**IndexImage**](DefaultApi.md#indeximage) | **POST** /index_image | Index Local Image
 [**TagImageByUrl**](DefaultApi.md#tagimagebyurl) | **GET** /predict_by_image_url | Tag Image by Using Image Url
 [**TagLocalImage**](DefaultApi.md#taglocalimage) | **POST** /predict | Predict by Image
 [**UpdateModel**](DefaultApi.md#updatemodel) | **POST** /models | Update Model
@@ -36,7 +38,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "https://api.classifyai.com";
             // Configure API key authorization: x-api-key
             Configuration.Default.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -117,7 +119,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "https://api.classifyai.com";
             // Configure API key authorization: x-api-key
             Configuration.Default.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -177,7 +179,7 @@ void (empty response body)
 
 ## GetModelsList
 
-> void GetModelsList ()
+> string GetModelsList ()
 
 Get Models List
 
@@ -198,7 +200,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "https://api.classifyai.com";
             // Configure API key authorization: x-api-key
             Configuration.Default.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -209,7 +211,8 @@ namespace Example
             try
             {
                 // Get Models List
-                apiInstance.GetModelsList();
+                string result = apiInstance.GetModelsList();
+                Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
@@ -228,7 +231,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
@@ -243,8 +246,175 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Query executed succesfully. |  -  |
-| **204** | No projects created yet. |  -  |
 | **401** | You don&#39;t have authorization to get the model list. |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IndexByImageUrl
+
+> string IndexByImageUrl (string modelId, string imageUrl)
+
+Index by Using Image URL
+
+Index by Using Image URL
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class IndexByImageUrlExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.classifyai.com";
+            // Configure API key authorization: x-api-key
+            Configuration.Default.AddApiKey("x-api-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-api-key", "Bearer");
+
+            var apiInstance = new DefaultApi(Configuration.Default);
+            var modelId = modelId_example;  // string | Model ID
+            var imageUrl = imageUrl_example;  // string | Image URL
+
+            try
+            {
+                // Index by Using Image URL
+                string result = apiInstance.IndexByImageUrl(modelId, imageUrl);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling DefaultApi.IndexByImageUrl: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelId** | **string**| Model ID | 
+ **imageUrl** | **string**| Image URL | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Image Indexed |  -  |
+| **400** | Bad request, parameter or format error. Please check your query, image format and image size. |  -  |
+| **401** | You are not authorized for this operation. |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IndexImage
+
+> string IndexImage (string modelId, System.IO.Stream file = null)
+
+Index Local Image
+
+Index Local Image
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class IndexImageExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.classifyai.com";
+            // Configure API key authorization: x-api-key
+            Configuration.Default.AddApiKey("x-api-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-api-key", "Bearer");
+
+            var apiInstance = new DefaultApi(Configuration.Default);
+            var modelId = modelId_example;  // string | Model ID
+            var file = BINARY_DATA_HERE;  // System.IO.Stream |  (optional) 
+
+            try
+            {
+                // Index Local Image
+                string result = apiInstance.IndexImage(modelId, file);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling DefaultApi.IndexImage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelId** | **string**| Model ID | 
+ **file** | **System.IO.Stream**|  | [optional] 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Image Indexed |  -  |
+| **400** | Bad request, parameter or format error. Please check your query, image format and image size. |  -  |
+| **401** | You are not authorized for this operation. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -275,7 +445,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "https://api.classifyai.com";
             // Configure API key authorization: x-api-key
             Configuration.Default.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -358,7 +528,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "https://api.classifyai.com";
             // Configure API key authorization: x-api-key
             Configuration.Default.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -441,7 +611,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "https://api.classifyai.com";
             // Configure API key authorization: x-api-key
             Configuration.Default.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed

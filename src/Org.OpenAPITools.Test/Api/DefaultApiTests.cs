@@ -93,8 +93,34 @@ namespace Org.OpenAPITools.Test
         public void GetModelsListTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //instance.GetModelsList();
-            
+            //var response = instance.GetModelsList();
+            //Assert.IsInstanceOf(typeof(string), response, "response is string");
+        }
+        
+        /// <summary>
+        /// Test IndexByImageUrl
+        /// </summary>
+        [Test]
+        public void IndexByImageUrlTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string modelId = null;
+            //string imageUrl = null;
+            //var response = instance.IndexByImageUrl(modelId, imageUrl);
+            //Assert.IsInstanceOf(typeof(string), response, "response is string");
+        }
+        
+        /// <summary>
+        /// Test IndexImage
+        /// </summary>
+        [Test]
+        public void IndexImageTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string modelId = null;
+            //System.IO.Stream file = null;
+            //var response = instance.IndexImage(modelId, file);
+            //Assert.IsInstanceOf(typeof(string), response, "response is string");
         }
         
         /// <summary>

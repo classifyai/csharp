@@ -72,8 +72,8 @@ namespace Org.OpenAPITools.Api
         /// Get the list of of models created 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns></returns>
-        void GetModelsList ();
+        /// <returns>string</returns>
+        string GetModelsList ();
 
         /// <summary>
         /// Get Models List
@@ -82,8 +82,54 @@ namespace Org.OpenAPITools.Api
         /// Get the list of of models created 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetModelsListWithHttpInfo ();
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> GetModelsListWithHttpInfo ();
+        /// <summary>
+        /// Index by Using Image URL
+        /// </summary>
+        /// <remarks>
+        /// Index by Using Image URL
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="imageUrl">Image URL</param>
+        /// <returns>string</returns>
+        string IndexByImageUrl (string modelId, string imageUrl);
+
+        /// <summary>
+        /// Index by Using Image URL
+        /// </summary>
+        /// <remarks>
+        /// Index by Using Image URL
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="imageUrl">Image URL</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> IndexByImageUrlWithHttpInfo (string modelId, string imageUrl);
+        /// <summary>
+        /// Index Local Image
+        /// </summary>
+        /// <remarks>
+        /// Index Local Image
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="file"> (optional)</param>
+        /// <returns>string</returns>
+        string IndexImage (string modelId, System.IO.Stream file = default(System.IO.Stream));
+
+        /// <summary>
+        /// Index Local Image
+        /// </summary>
+        /// <remarks>
+        /// Index Local Image
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="file"> (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> IndexImageWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
         /// Tag Image by Using Image Url
         /// </summary>
@@ -204,8 +250,8 @@ namespace Org.OpenAPITools.Api
         /// Get the list of of models created 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetModelsListAsync ();
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> GetModelsListAsync ();
 
         /// <summary>
         /// Get Models List
@@ -214,8 +260,54 @@ namespace Org.OpenAPITools.Api
         /// Get the list of of models created 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetModelsListAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> GetModelsListAsyncWithHttpInfo ();
+        /// <summary>
+        /// Index by Using Image URL
+        /// </summary>
+        /// <remarks>
+        /// Index by Using Image URL
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="imageUrl">Image URL</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> IndexByImageUrlAsync (string modelId, string imageUrl);
+
+        /// <summary>
+        /// Index by Using Image URL
+        /// </summary>
+        /// <remarks>
+        /// Index by Using Image URL
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="imageUrl">Image URL</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> IndexByImageUrlAsyncWithHttpInfo (string modelId, string imageUrl);
+        /// <summary>
+        /// Index Local Image
+        /// </summary>
+        /// <remarks>
+        /// Index Local Image
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="file"> (optional)</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> IndexImageAsync (string modelId, System.IO.Stream file = default(System.IO.Stream));
+
+        /// <summary>
+        /// Index Local Image
+        /// </summary>
+        /// <remarks>
+        /// Index Local Image
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="file"> (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> IndexImageAsyncWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream));
         /// <summary>
         /// Tag Image by Using Image Url
         /// </summary>
@@ -678,18 +770,19 @@ namespace Org.OpenAPITools.Api
         /// Get Models List Get the list of of models created 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns></returns>
-        public void GetModelsList ()
+        /// <returns>string</returns>
+        public string GetModelsList ()
         {
-             GetModelsListWithHttpInfo();
+             ApiResponse<string> localVarResponse = GetModelsListWithHttpInfo();
+             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get Models List Get the list of of models created 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetModelsListWithHttpInfo ()
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse<string> GetModelsListWithHttpInfo ()
         {
 
             var localVarPath = "/models";
@@ -733,19 +826,20 @@ namespace Org.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<string>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
         }
 
         /// <summary>
         /// Get Models List Get the list of of models created 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetModelsListAsync ()
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> GetModelsListAsync ()
         {
-             await GetModelsListAsyncWithHttpInfo();
+             ApiResponse<string> localVarResponse = await GetModelsListAsyncWithHttpInfo();
+             return localVarResponse.Data;
 
         }
 
@@ -753,8 +847,8 @@ namespace Org.OpenAPITools.Api
         /// Get Models List Get the list of of models created 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetModelsListAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> GetModelsListAsyncWithHttpInfo ()
         {
 
             var localVarPath = "/models";
@@ -798,9 +892,315 @@ namespace Org.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<string>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Index by Using Image URL Index by Using Image URL
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="imageUrl">Image URL</param>
+        /// <returns>string</returns>
+        public string IndexByImageUrl (string modelId, string imageUrl)
+        {
+             ApiResponse<string> localVarResponse = IndexByImageUrlWithHttpInfo(modelId, imageUrl);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Index by Using Image URL Index by Using Image URL
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="imageUrl">Image URL</param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse<string> IndexByImageUrlWithHttpInfo (string modelId, string imageUrl)
+        {
+            // verify the required parameter 'modelId' is set
+            if (modelId == null)
+                throw new ApiException(400, "Missing required parameter 'modelId' when calling DefaultApi->IndexByImageUrl");
+            // verify the required parameter 'imageUrl' is set
+            if (imageUrl == null)
+                throw new ApiException(400, "Missing required parameter 'imageUrl' when calling DefaultApi->IndexByImageUrl");
+
+            var localVarPath = "/index_by_image_url";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (modelId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "model_id", modelId)); // query parameter
+            if (imageUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "image_url", imageUrl)); // query parameter
+
+            // authentication (x-api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-api-key")))
+            {
+                localVarHeaderParams["x-api-key"] = this.Configuration.GetApiKeyWithPrefix("x-api-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("IndexByImageUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Index by Using Image URL Index by Using Image URL
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="imageUrl">Image URL</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> IndexByImageUrlAsync (string modelId, string imageUrl)
+        {
+             ApiResponse<string> localVarResponse = await IndexByImageUrlAsyncWithHttpInfo(modelId, imageUrl);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Index by Using Image URL Index by Using Image URL
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="imageUrl">Image URL</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> IndexByImageUrlAsyncWithHttpInfo (string modelId, string imageUrl)
+        {
+            // verify the required parameter 'modelId' is set
+            if (modelId == null)
+                throw new ApiException(400, "Missing required parameter 'modelId' when calling DefaultApi->IndexByImageUrl");
+            // verify the required parameter 'imageUrl' is set
+            if (imageUrl == null)
+                throw new ApiException(400, "Missing required parameter 'imageUrl' when calling DefaultApi->IndexByImageUrl");
+
+            var localVarPath = "/index_by_image_url";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (modelId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "model_id", modelId)); // query parameter
+            if (imageUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "image_url", imageUrl)); // query parameter
+
+            // authentication (x-api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-api-key")))
+            {
+                localVarHeaderParams["x-api-key"] = this.Configuration.GetApiKeyWithPrefix("x-api-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("IndexByImageUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Index Local Image Index Local Image
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="file"> (optional)</param>
+        /// <returns>string</returns>
+        public string IndexImage (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        {
+             ApiResponse<string> localVarResponse = IndexImageWithHttpInfo(modelId, file);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Index Local Image Index Local Image
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="file"> (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse<string> IndexImageWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        {
+            // verify the required parameter 'modelId' is set
+            if (modelId == null)
+                throw new ApiException(400, "Missing required parameter 'modelId' when calling DefaultApi->IndexImage");
+
+            var localVarPath = "/index_image";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (modelId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "model_id", modelId)); // query parameter
+            if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
+
+            // authentication (x-api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-api-key")))
+            {
+                localVarHeaderParams["x-api-key"] = this.Configuration.GetApiKeyWithPrefix("x-api-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("IndexImage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Index Local Image Index Local Image
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="file"> (optional)</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> IndexImageAsync (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        {
+             ApiResponse<string> localVarResponse = await IndexImageAsyncWithHttpInfo(modelId, file);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Index Local Image Index Local Image
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="modelId">Model ID</param>
+        /// <param name="file"> (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> IndexImageAsyncWithHttpInfo (string modelId, System.IO.Stream file = default(System.IO.Stream))
+        {
+            // verify the required parameter 'modelId' is set
+            if (modelId == null)
+                throw new ApiException(400, "Missing required parameter 'modelId' when calling DefaultApi->IndexImage");
+
+            var localVarPath = "/index_image";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (modelId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "model_id", modelId)); // query parameter
+            if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
+
+            // authentication (x-api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-api-key")))
+            {
+                localVarHeaderParams["x-api-key"] = this.Configuration.GetApiKeyWithPrefix("x-api-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("IndexImage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
         }
 
         /// <summary>

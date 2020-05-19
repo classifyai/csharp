@@ -77,7 +77,7 @@ namespace Example
         public static void Main()
         {
 
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "https://api.classifyai.com";
             // Configure API key authorization: x-api-key
             Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -105,13 +105,15 @@ namespace Example
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.classifyai.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**CreateNewModel**](docs/DefaultApi.md#createnewmodel) | **PUT** /models | Create New Model
 *DefaultApi* | [**DeleteModel**](docs/DefaultApi.md#deletemodel) | **DELETE** /models | Delete Model
 *DefaultApi* | [**GetModelsList**](docs/DefaultApi.md#getmodelslist) | **GET** /models | Get Models List
+*DefaultApi* | [**IndexByImageUrl**](docs/DefaultApi.md#indexbyimageurl) | **GET** /index_by_image_url | Index by Using Image URL
+*DefaultApi* | [**IndexImage**](docs/DefaultApi.md#indeximage) | **POST** /index_image | Index Local Image
 *DefaultApi* | [**TagImageByUrl**](docs/DefaultApi.md#tagimagebyurl) | **GET** /predict_by_image_url | Tag Image by Using Image Url
 *DefaultApi* | [**TagLocalImage**](docs/DefaultApi.md#taglocalimage) | **POST** /predict | Predict by Image
 *DefaultApi* | [**UpdateModel**](docs/DefaultApi.md#updatemodel) | **POST** /models | Update Model
@@ -120,6 +122,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.InlineObject](docs/InlineObject.md)
+ - [Model.InlineObject1](docs/InlineObject1.md)
 
 
 ## Documentation for Authorization
